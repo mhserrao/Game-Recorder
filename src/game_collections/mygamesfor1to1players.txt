@@ -1,0 +1,2 @@
+Sudoku,1,1,1.99,Fill in a grid with numbers 1 to 9 but don't repeat yourself in the same block or line!
+Doom,1,1,9.99,Shoot everything in sight

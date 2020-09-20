@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.image.*?>
+
+<GridPane id="window" styleClass="border-pane" 
+          xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="serramai.FXMLGameRecordApplicationController" 
+          prefWidth="1200" prefHeight="600" vgap="0"  hgap="20" >
+    <stylesheets>
+        <URL value="@assets/fxmlgamerecordapplication.css" />
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+        <ColumnConstraints percentWidth="19.0" hgrow="ALWAYS" />
+        <ColumnConstraints percentWidth="23.0" hgrow="ALWAYS" />
+        <ColumnConstraints percentWidth="33.0" hgrow="ALWAYS" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="18.0" vgrow="SOMETIMES" />
+        <RowConstraints percentHeight="72.0" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <!--Row 1, Columns 1 to 4-->
+        <HBox GridPane.columnIndex="0" GridPane.columnSpan="4" 
+              alignment="CENTER" GridPane.rowIndex="0">
+            <Label text="---------- GAME RECORD ARCHIVER ----------" 
+                   id="title" />
+        </HBox>
+        <!--Row2-->
+        <!--Column 1-->
+        <VBox spacing="10" id="left-vbox" GridPane.columnIndex="0" 
+              GridPane.rowIndex="1" GridPane.vgrow="ALWAYS" 
+              alignment="CENTER" >
+            <Label text="Available Files" wrapText="true" />
+            <ListView fx:id="lstFiles" VBox.vgrow="ALWAYS" >
+                <VBox.margin>
+                    <Insets top="0" right="0" bottom="10" left="0" />
+                </VBox.margin>
+            </ListView>   
+        </VBox>
+        
+        <!--Column 2-->
+        <VBox spacing="10" id="center-vbox" GridPane.columnIndex="1" 
+              GridPane.rowIndex="1" alignment="CENTER" GridPane.vgrow="ALWAYS" >
+            <Label text="Number of Players" wrapText="true" />
+            <ListView fx:id="lstPlayers" VBox.vgrow="ALWAYS" >
+                <VBox.margin>
+                    <Insets top="0" right="0" bottom="10" left="0" />
+                </VBox.margin>
+            </ListView>  
+        </VBox>
+                
+        <!--Column 3-->
+        <VBox spacing="10" id="right-vbox" GridPane.columnIndex="2" 
+              GridPane.rowIndex="1" GridPane.hgrow="ALWAYS" >
+            <Label text="Select Game" wrapText="true" maxWidth="Infinity" 
+                   alignment="CENTER" />
+            <ComboBox fx:id="ddlGames" visibleRowCount="10" maxWidth="Infinity" 
+            />  
+        </VBox>
+                
+        <!--Column 4-->
+        <VBox spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="1" 
+              alignment="CENTER">
+            <Label text="About your selected game" wrapText="true" />
+            <TextArea promptText="Game Info" fx:id="txtDescription"
+                      wrapText="true" maxWidth="Infinity" 
+                      styleClass="text-area" editable="false" 
+                      VBox.vgrow="ALWAYS">
+                <VBox.margin>
+                    <Insets top="0" right="0" bottom="10" left="0" />
+                </VBox.margin>
+            </TextArea>
+        </VBox>
+                
+        <!--Row 3-->
+        <!--Column 1-->
+        <VBox spacing="20" GridPane.columnIndex="0" alignment="CENTER"
+              GridPane.rowIndex="2" >
+            <Button text="LOAD" maxHeight="Infinity" maxWidth="Infinity" 
+                    visible="false" onAction="#load" fx:id="btnLoad" />
+        </VBox>
+        
+        <!--Column 2-->
+        <VBox spacing="20" GridPane.columnIndex="1" alignment="CENTER"
+              GridPane.rowIndex="2" >
+            <Button text="CHECK GAMES" maxHeight="Infinity" maxWidth="Infinity" 
+                    visible="false" onAction="#displayGames"  fx:id="btnCheck" 
+            />
+        </VBox>
+        
+        <!--Column 3-->
+        <HBox spacing="20" GridPane.columnIndex="3" alignment="CENTER"
+              GridPane.rowIndex="2" id="hbox" >
+            <Button text="SAVE" maxHeight="Infinity" maxWidth="Infinity" 
+                    visible="false" fx:id="btnSave" onAction="#saveGame"
+                    HBox.hgrow="ALWAYS" />
+            <Button text="QUIT" maxHeight="Infinity" maxWidth="Infinity"
+                    visible="true" fx:id="btnQuit" onAction="#quitGame" 
+                    id="quit" HBox.hgrow="ALWAYS" />
+        </HBox>
+       
+    </children>
+</GridPane>    
